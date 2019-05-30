@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fun(){
+            console.log(this);
+            console.log(this.name);
+        }
+
+        var obj1 = {
+            name :"smyh",
+            sayName :fun
+        };
+
+        var obj2 = {
+            name :"vae",
+            sayName:fun
+        };
+
+        var name = "全局变量属性";
+        fun();//第一个this是window,第二个this是window.name方法。
+        obj2.sayName();//this是调用方法属性
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>重写tostring</title>
+</head>
+<body>
+    <script>
+        //当我们直接在页面中打印一个对象时，其实是输出了对象的toString()方法的返回值。
+
+        //如果我们希望在打印对象时，不输出[object Object]，可以手动为对象添加一个toString()方法。意思是，重写 toString() 方法。
+
+        //重写 toString() 方法，具体做法如下：
+        function Person(name,age,gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+        Person.prototype.toString = function(){
+            return (
+                "Person[name="+
+                this.name +
+                ",age="+
+                ",gender="+
+                this.gender+
+                "]"
+            );
+        };
+
+        var person1 = new Person("小张",18,"男");
+        var person2 = new Person("小花",19,"女");
+        console.log(person1);
+        console.log(person2.toString());
+    </script>
+</body>
+</html>
